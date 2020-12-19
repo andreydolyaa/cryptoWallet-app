@@ -8,10 +8,12 @@ import './StatisticPage.scss';
 export default class StatisticPage extends Component {
     state = {
         marketPrice: null,
+        tradingVolume: null
     }
 
     componentDidMount() {
         this.loadMarketPrice();
+        this.loadTradingVolume();
     }
 
     async loadMarketPrice() {
@@ -19,11 +21,16 @@ export default class StatisticPage extends Component {
         this.setState({ marketPrice });
     }
 
+    async loadTradingVolume() {
+        const tradingVolume = await bitcoinService.getConfirmedTransactions();
+        this.setState({ tradingVolume });
+    }
+
     render() {
-        const { marketPrice } = this.state;
+        const { marketPrice, tradingVolume } = this.state;
         return (
-            <div>
-                {marketPrice && <Chart marketPrice={marketPrice.values} />}
+            <div className="charts">
+                {marketPrice && tradingVolume && <Chart marketPrice={marketPrice.values} tradingVolume={tradingVolume.values} />}
             </div>
         )
     }

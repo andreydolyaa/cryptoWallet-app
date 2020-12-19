@@ -8,7 +8,7 @@ import './HomePage.scss';
 export default class HomePage extends Component {
     state = {
         user: null,
-        marketPrice:null
+        marketPrice: null
     }
 
     componentDidMount() {
@@ -20,23 +20,26 @@ export default class HomePage extends Component {
         const user = await userService.getUser();
         this.setState({ user });
     }
-    async loadMarketPrice(){
-        const market = await bitcoinService.getMarketPrice();
-        this.setState({marketPrice:market});
+    async loadMarketPrice() {
+        const market = await bitcoinService.getRate(1);
+        this.setState({ marketPrice: market });
     }
 
 
     render() {
-        const { user,marketPrice } = this.state;
+        const { user, marketPrice } = this.state;
         return (
-            <div>
-            {user && marketPrice &&
-                <div className="user">
-                    <h4>Hi, {user.name}</h4>
-                    <p>Your Balance: {user.coins} BTC</p>
-                    <p>Current BTC Rate: {marketPrice.values[150].y + marketPrice.unit}</p>
-                </div>
-            }
+            <div class="homepage">
+            <h1><i class="fab fa-bitcoin"></i> Mister Bitcoin</h1>
+                {user && marketPrice &&
+                    <div className="user">
+                        <div class="name">
+                            <h4>Hi, {user.name}</h4>
+                        </div>
+                        <p><i class="fas fa-wallet"></i> Your Balance: {user.coins} BTC</p>
+                        <p><i class="fab fa-bitcoin"></i> Current BTC Rate: {marketPrice}</p>
+                    </div>
+                }
             </div>
         )
     }

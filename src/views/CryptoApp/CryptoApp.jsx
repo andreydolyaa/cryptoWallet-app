@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import HomePage from '../HomePage/HomePage.jsx';
 import ContactPage from '../ContactPage/ContactPage.jsx';
 import StatisticPage from '../StatisticPage/StatisticPage.jsx';
-import ContactPreview from '../../cmps/ContactPreview/index.js';
 import './CryptoApp.scss';
+
 
 
 
@@ -32,7 +32,7 @@ export default class CryptoApp extends Component {
     render() {
         const { showCharts, showUsers } = this.state;
         return (
-            <div>
+            <div className="crypto-app">
                 <HomePage />
                 <div className="toggleChart">
                     <button onClick={this.showUsers}>Contacts</button>

@@ -1,9 +1,10 @@
 
 
 import React, { Component } from 'react';
-import contactService from '../../services/contactService';
+import contactService from '../../services/contactService.js';
 import ContactList from '../../cmps/ContactList/ContactList';
 import ContactDetails from '../ContactDetails/ContactDetails.jsx';
+import { ContactFilter } from '../../cmps/ContactFilter/ContactFilter.jsx';
 import './ContactPage.scss';
 
 
@@ -13,6 +14,7 @@ export default class ContactPage extends Component {
     state = {
         contacts: null,
         selectedContactId: null,
+        filterBy: null
     }
 
 
@@ -22,19 +24,28 @@ export default class ContactPage extends Component {
 
 
     async loadContacts() {
-        const contacts = await contactService.getContacts();
+        const contacts = await contactService.getContacts(this.state.filterBy);
         this.setState({ contacts });
     }
+
+
+    onSetFilter = (filterBy) => {
+        this.setState({ filterBy }, this.loadContacts);
+    }
+
 
 
     onSelectContact = (contactId) => {
         this.setState({ selectedContactId: contactId })
     }
 
+
+
     render() {
         const { contacts, selectedContactId } = this.state;
         return (
             <div>
+                <ContactFilter onSetFilter={this.onSetFilter} />
                 <div>
                     {contacts && !selectedContactId && <ContactList contacts={contacts} onSelectContact={this.onSelectContact} />}
                     {selectedContactId && <ContactDetails selectedContactId={selectedContactId} onBack={() => this.onSelectContact(null)} />}
