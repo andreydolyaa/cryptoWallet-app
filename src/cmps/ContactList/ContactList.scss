@@ -3,4 +3,16 @@
     flex-wrap: wrap;
     max-width:1200px;
     margin:auto;
+    a{
+        text-decoration: none;
+    }
+}
+
+
+
+
+@media(max-width:1146px){
+    .user-list{
+        justify-content: center;
+    }
 }

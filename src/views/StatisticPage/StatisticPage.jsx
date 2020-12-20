@@ -16,15 +16,18 @@ export default class StatisticPage extends Component {
         this.loadTradingVolume();
     }
 
+
     async loadMarketPrice() {
         const marketPrice = await bitcoinService.getMarketPrice();
         this.setState({ marketPrice });
     }
+    
 
     async loadTradingVolume() {
         const tradingVolume = await bitcoinService.getConfirmedTransactions();
         this.setState({ tradingVolume });
     }
+
 
     render() {
         const { marketPrice, tradingVolume } = this.state;

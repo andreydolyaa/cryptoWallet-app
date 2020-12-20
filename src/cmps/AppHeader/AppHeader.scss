@@ -1,0 +1,16 @@
+
+.app-header{
+    font-family: Nunito;
+    display:flex;
+    padding:1rem;
+    align-items: center;
+    background: linear-gradient(130deg, #fdcd3b 95%, #ffed4b 60%);
+    color:rgb(255, 255, 255);
+    & > *:not(:first-child){
+        margin-left:3rem;
+    }
+    h1{
+        color:rgb(255, 255, 255);
+        
+    }
+}

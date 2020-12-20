@@ -22,8 +22,8 @@ export class ContactFilter extends Component {
         const { term } = this.state;
         return (
             <div className="contact-filter">
-                <label htmlFor="term">Search:</label>
-                <input name="term" value={term} type="text" placeholder="Search contact..." onChange={this.onChangeHandler} />
+                <label htmlFor="term">Search for contact:</label>
+                <input name="term" value={term} type="text" placeholder="Search by name email or phone..." onChange={this.onChangeHandler} />
 
             </div>
         )

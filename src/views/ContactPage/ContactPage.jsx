@@ -5,6 +5,7 @@ import contactService from '../../services/contactService.js';
 import ContactList from '../../cmps/ContactList/ContactList';
 import ContactDetails from '../ContactDetails/ContactDetails.jsx';
 import { ContactFilter } from '../../cmps/ContactFilter/ContactFilter.jsx';
+import { Link } from 'react-router-dom';
 import './ContactPage.scss';
 
 
@@ -13,7 +14,6 @@ import './ContactPage.scss';
 export default class ContactPage extends Component {
     state = {
         contacts: null,
-        selectedContactId: null,
         filterBy: null
     }
 
@@ -36,21 +36,28 @@ export default class ContactPage extends Component {
 
 
     onSelectContact = (contactId) => {
-        this.setState({ selectedContactId: contactId })
+        // this.setState({ selectedContactId: contactId })
+
     }
 
 
 
+
     render() {
-        const { contacts, selectedContactId } = this.state;
+        const { contacts } = this.state;
         return (
             <div>
                 <ContactFilter onSetFilter={this.onSetFilter} />
+                <div className="add-contact">
+                    <Link to="/contact/edit">Add New Contact <i class="far fa-address-book"></i></Link>
+                </div>
                 <div>
-                    {contacts && !selectedContactId && <ContactList contacts={contacts} onSelectContact={this.onSelectContact} />}
-                    {selectedContactId && <ContactDetails selectedContactId={selectedContactId} onBack={() => this.onSelectContact(null)} />}
+                    {contacts && <ContactList contacts={contacts} />}
                 </div>
             </div>
         )
     }
 }
+
+// {contacts && !selectedContactId && <ContactList contacts={contacts} onSelectContact={this.onSelectContact} />}
+// {selectedContactId && <ContactDetails selectedContactId={selectedContactId} onBack={() => this.onSelectContact(null)} />}

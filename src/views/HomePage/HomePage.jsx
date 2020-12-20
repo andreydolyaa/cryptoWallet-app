@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bitcoinService } from '../../services/bitcoinService';
 import { userService } from '../../services/userService';
 import './HomePage.scss';
+import imgBgc from '../../assets/img/bitcoin.png'
 
 
 
@@ -25,19 +26,32 @@ export default class HomePage extends Component {
         this.setState({ marketPrice: market });
     }
 
+    getStarted = () =>{
+        this.props.history.push("/contacts")
+    }
+
 
     render() {
         const { user, marketPrice } = this.state;
         return (
             <div class="homepage">
-            <h1><i class="fab fa-bitcoin"></i> Mister Bitcoin</h1>
                 {user && marketPrice &&
                     <div className="user">
-                        <div class="name">
-                            <h4>Hi, {user.name}</h4>
+                        <div className="user-details">
+                            <p>Welcome back, {user.name}</p>
+                            <p><i class="fas fa-wallet"></i> Your Balance: {user.coins} BTC</p>
+                            <p><i class="fab fa-bitcoin"></i> Current BTC Rate: {marketPrice}</p>
                         </div>
-                        <p><i class="fas fa-wallet"></i> Your Balance: {user.coins} BTC</p>
-                        <p><i class="fab fa-bitcoin"></i> Current BTC Rate: {marketPrice}</p>
+                        <div className="bgcImg">
+                            <div className="logo">
+                                <h1>Mr.Bitcoin.</h1>
+                                <h2>Most secure Cryptocurrency wallet on the web.</h2>
+                                <button onClick={this.getStarted}>Get Started</button>
+                            </div>
+                            <div class="imgs">
+                                <img src={imgBgc}></img>
+                            </div>
+                        </div>
                     </div>
                 }
             </div>

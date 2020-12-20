@@ -1,34 +1,192 @@
+
 .user{
-    width:1200px;
-    margin-top:1rem;
-    background-color: rgb(230, 230, 230);
-    padding:1rem;
+    font-family:Nunito;
+    // background-color: rgb(240, 240, 240);
+    background: linear-gradient(130deg, #fdcd3b 65%, #ffed4b 60%);
+    
+    height:100vh;
     display:flex;
-    align-items: center;
-    justify-content: space-around;
-    color:rgb(119, 117, 117);
-    p{
-        margin:1rem;
-        font-size:1.4rem;
-    }
-    img{
-        width:50px;
-        border-radius:50%;
-    }
-    .name{
+    
+    flex-direction: column;
+    .bgcImg{
         display:flex;
-        align-items: center;
-        justify-content: center;
+        width:1300px;
+        justify-content: space-between;
+        margin:2rem auto;
+        box-shadow: 0px 0px 99px rgb(255, 183, 28);
+        border-radius: 10px;
+        padding:3rem;
     }
-    h4{
-        font-size:1.6rem;
+    .logo{
+        text-align:center;
+        display:flex;
+        flex-direction: column;
+        
+        align-items: center;
+        h1{
+            font-size:5rem;
+            font-weight: bold;
+            color:rgb(253, 109, 66);
+            border-radius: 10px;
+            span{
+                
+            }
+        }
+        h2{
+            color:rgb(253, 109, 66);
+            font-size:2.5rem;
+            width:600px;
+        }
+        button{
+            margin-top:8rem;
+            width:250px;
+            height:50px;
+            font-size:1.5rem;
+            background-color: rgb(114, 168, 230);
+            border:none;
+            color: white;
+            border-radius: 5px;
+            outline: none;
+            transition: .3s;
+        }
+    }
+    .user-details{
+        width:1200px;
+        display:Flex;
+        justify-content: space-around;
+        align-items: center;
+        margin:2rem  auto;
+        font-size:1.5rem;
+        color:rgb(65, 65, 65);
+        p{
+            font-weight: bold;
+        }
+    }
+    button:hover{
+        background-color: rgb(17, 117, 231);
     }
 }
 
-.homepage{
-    h1{
-        margin-left:2rem;
-        color:rgb(255, 145, 0);
-        
+
+
+@media(max-width:1274px){
+    .user{
+        flex-direction: column;
+        .bgcImg{
+            width:1000px;
+        }
+        .user-details{
+            width:900px;
+            font-size:1.2rem;
+        }
+    }
+}
+
+
+@media(max-width:990px){
+    .user{
+        flex-direction: column;
+        .bgcImg{
+            width:1000px;
+            justify-content: center;
+            img{
+                width:300px;
+            }
+        }
+        .logo{
+            
+            h1{
+                font-size:2rem;
+            }
+            h2{
+                font-size:2rem;
+                width:400px;
+            }
+            button{
+                width:180px;
+                font-size:1rem;
+                height:35px;
+            }
+        }
+        .user-details{
+            width:900px;
+            font-size:1.2rem;
+        }
+    }
+}
+@media(max-width:864px){
+    .user{
+        flex-direction: column;
+        .bgcImg{
+            width:700px;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            img{
+                width:200px;
+                margin-top:2rem;
+            }
+        }
+        .logo{
+            
+            h1{
+                font-size:2rem;
+            }
+            h2{
+                font-size:2rem;
+                width:400px;
+            }
+            button{
+                width:180px;
+                font-size:1rem;
+                height:35px;
+                margin-top:1rem;
+            }
+        }
+        .user-details{
+            width:500px;
+            font-size:1rem;
+        }
+    }
+}
+@media(max-width:545px){
+    .user{
+        flex-direction: column;
+        .bgcImg{
+            width:500px;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            img{
+                width:200px;
+                margin-top:2rem;
+            }
+        }
+        .logo{
+            
+            h1{
+                font-size:2rem;
+            }
+            h2{
+                font-size:2rem;
+                width:400px;
+            }
+            button{
+                width:180px;
+                font-size:1rem;
+                height:35px;
+                margin-top:1rem;
+            }
+        }
+        .user-details{
+            width:400px;
+            font-size:.7rem;
+            flex-direction: column;
+            padding:0;
+            margin:1rem auto;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
     }
 }
