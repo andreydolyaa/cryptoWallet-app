@@ -145,7 +145,7 @@ function getContacts (filterBy = null) {
     if (filterBy && filterBy.term) {
       contactsToReturn = filter(filterBy.term)
     }
-    resolve(sort(contactsToReturn))
+    resolve(sort([...contactsToReturn]))
   })
 }
 

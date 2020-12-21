@@ -1,29 +1,37 @@
 
 import React, { Component } from 'react'
-import contactService from '../../services/contactService';
 import './ContactDetails.scss';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getById, deleteContact } from '../../store/actions/contactActions';
+import { TransferFund } from '../../cmps/TransferFund/TransferFund.jsx';
 
 
-export default class ContactDetails extends Component {
+class _ContactDetails extends Component {
 
-    state = {
-        contact: null,
+
+    componentDidMount() {
+        this.loadContact();
     }
 
-    async componentDidMount() {
-        console.log(this.props);
-        const contact = await contactService.getContactById(this.props.match.params.id);
-        this.setState({ contact });
+
+    async loadContact() {
+        await this.props.getById(this.props.match.params.id);
     }
 
     goBack = () => {
         this.props.history.push('/contacts');
     }
 
+    deleteContact = () => {
+        this.props.deleteContact(this.props.match.params.id);
+        this.props.history.push('/contacts');
+    }
+
 
     render() {
-        const { contact } = this.state;
+        const { contact } = this.props;
+        if (!contact) return <div>Loading Contact...</div>
         return (
             <div className="contact-details">
                 {contact &&
@@ -32,9 +40,12 @@ export default class ContactDetails extends Component {
                         <h1>{contact.name}</h1>
                         <h2>{contact.email}</h2>
                         <h2>{contact.phone}</h2>
+                        <TransferFund name={contact.name}/>
+
                         <div className="user-btns">
-                        <Link to={`/contact/edit/${contact._id}`}>Edit Contact <i class="fas fa-user-edit"></i></Link>
-                        <button onClick={this.goBack}>Return</button>
+                            <Link to={`/contact/edit/${contact._id}`}>Edit Contact <i className="fas fa-user-edit"></i></Link>
+                            <button onClick={this.deleteContact}>Delete Contact</button>
+                            <button className="return" onClick={this.goBack}>Return</button>
                         </div>
                     </div>
                 }
@@ -42,3 +53,15 @@ export default class ContactDetails extends Component {
         )
     }
 }
+
+
+const mapStateToProps = (state) => ({
+    contact: state.contactReducer.currContact
+})
+
+const mapDispatchToProps = {
+    getById,
+    deleteContact
+}
+
+export const ContactDetails = connect(mapStateToProps, mapDispatchToProps)(_ContactDetails);

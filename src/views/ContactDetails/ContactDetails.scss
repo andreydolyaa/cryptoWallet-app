@@ -3,15 +3,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:2rem 0;
+
     text-align: center;
     .user-details{
+        margin-top:2rem;
+        border-radius: 10px;
+        background-color: rgb(243, 243, 243);
         padding:1rem;
         h1,h2{
-            margin:1rem;
+            margin:.4rem;
+            
+        }
+        h1{
+            color:rgb(255, 123, 0);
+        }
+        h2{
+            color: gray;
         }
         a{
             
+        }
+        img{
+            width:150px;
         }
         .user-btns{
             display:flex;
@@ -33,6 +46,11 @@
             }
             i{
                 margin-left:10px;
+            }
+            .return{
+                background-color:rgb(0, 132, 255);
+                color:white;
+                border:1px solid rgb(225, 225, 225);
             }
             button{
                 margin:2rem;

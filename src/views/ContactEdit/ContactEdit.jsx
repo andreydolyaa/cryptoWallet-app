@@ -1,10 +1,11 @@
 
 import React, { Component } from 'react';
 import contactService from '../../services/contactService';
-import { userService } from '../../services/userService';
+import { connect } from 'react-redux';
+import { addContact, updateContact } from '../../store/actions/contactActions';
 import './ContactEdit.scss';
 
-export default class ContactEdit extends Component {
+class _ContactEdit extends Component {
     state = {
         user: {
             name: '',
@@ -29,15 +30,23 @@ export default class ContactEdit extends Component {
 
     saveChanges = async (ev) => {
         ev.preventDefault();
-        await contactService.saveContact(this.state.user);
-        this.props.history.push('/');
+        const { user } = this.state;
+        if (user._id) {
+            console.log(user._id);
+            await this.props.updateContact(user)
+        }
+        else {
+            await this.props.addContact(user);
+            console.log(this.props);
+        }
+        this.props.history.push('/contacts');
     }
 
     render() {
         const { name, email, phone } = this.state.user;
         return (
             <form onSubmit={this.saveChanges} className="edit-contact">
-            <h1>Edit Contact -</h1>
+                <h1>Edit Contact -</h1>
                 <div>
                     <label>* Name:</label>
                     <input type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} />
@@ -55,3 +64,16 @@ export default class ContactEdit extends Component {
         )
     }
 }
+
+
+const mapStateToProps = (state) => ({
+
+})
+
+const mapDispatchToProps = {
+    addContact,
+    updateContact
+}
+
+
+export const ContactEdit = connect(null, mapDispatchToProps)(_ContactEdit);

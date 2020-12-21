@@ -1,0 +1,32 @@
+
+
+.personal-area{
+    border:1px solid rgb(189, 189, 189);
+    display:flex;
+    justify-content: space-around;
+    width:900px;
+    margin:2rem auto;
+    i{
+        font-size:4rem;
+        color:orange;
+    }
+    .welcome{
+        padding:3rem;
+        text-align: center;
+        h3,h1{
+            margin:1rem;
+        }
+    }
+    .history{
+
+    }
+    .user-transactions{
+        border:1px solid rgb(189, 189, 189);
+        margin:2rem;
+        span{
+            color:orange;
+        }
+        line-height: 21px;
+        padding:1rem;
+    }
+}
