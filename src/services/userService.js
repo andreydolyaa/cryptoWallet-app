@@ -36,6 +36,8 @@ function transferFunds(sentTo){
     if(!user) return;
     else {
         user.coins -= sentTo.amount
+        var date = new Date(sentTo.date).toDateString();
+        sentTo.date = date;
         user.moves.push(sentTo);
         storageService.store(STORAGE_KEY,user); 
     }

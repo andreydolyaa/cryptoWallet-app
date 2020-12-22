@@ -1,9 +1,10 @@
 
 
 .App{
+    
     // position: fixed;
     // right:0;
-    // width:100%;
+    width:100%;
     // margin:auto;
 }
 
@@ -31,9 +32,16 @@
 }
 
 .crypto-app{
+    
     display:flex;
     margin: auto;
     flex-direction: column;
     border-radius:10px;
     width:100%;
+}
+
+
+
+@media(max-width:415px){
+    
 }

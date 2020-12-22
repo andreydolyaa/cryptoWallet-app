@@ -18,3 +18,13 @@
         color:rgb(192, 192, 192);
     }
 }
+
+
+@media(max-width:415px){
+    .contact-filter{
+        flex-direction: column;
+        input{
+            margin:1rem;
+        }
+    }
+}

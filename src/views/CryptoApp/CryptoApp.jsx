@@ -8,7 +8,7 @@ import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import { ContactDetails } from '../ContactDetails/ContactDetails.jsx';
 import { ContactEdit } from '../ContactEdit/ContactEdit.jsx';
 import { Signup } from '../Signup/Signup';
-import {PersonalArea} from '../PersonalArea/PersonalArea.jsx';
+import { PersonalArea } from '../PersonalArea/PersonalArea.jsx';
 
 
 
@@ -16,14 +16,22 @@ import {PersonalArea} from '../PersonalArea/PersonalArea.jsx';
 
 export default class CryptoApp extends Component {
     state = {
+        style: 'none',
+        icon:'block'
+    }
 
+    toggleMenu = () => {
+        var { style } = this.state;
+        if (style === 'none') this.setState({ style: 'flex',icon:'none' });
+        else this.setState({ style: 'none',icon:'block' });
+        console.log(this.state);
     }
 
     render() {
         return (
             <div className="crypto-app">
                 <Router>
-                    <AppHeader />
+                    <AppHeader toggleMenu={this.toggleMenu} onOff={this.state.style} icon={this.state.icon}/>
                     <Switch>
                         <Route path="/contact/edit/:id?" component={ContactEdit}></Route>
                         <Route path="/contact/:id" component={ContactDetails}></Route>

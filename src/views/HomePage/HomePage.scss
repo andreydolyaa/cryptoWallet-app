@@ -51,7 +51,11 @@
         }
     }
     .user-details{
-        width:1200px;
+        box-shadow: 0px 0px 99px rgb(255, 183, 28);
+        border-radius: 10px;
+        padding:20px;
+        width:1300px;
+        
         display:Flex;
         justify-content: space-around;
         align-items: center;
@@ -111,6 +115,10 @@
         .user-details{
             width:900px;
             font-size:1.2rem;
+            flex-direction: column;
+            p{
+                margin:10px;
+            }
         }
     }
 }
@@ -180,6 +188,50 @@
         }
         .user-details{
             width:400px;
+            font-size:.7rem;
+            flex-direction: column;
+            padding:0;
+            margin:1rem auto;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    }
+}
+
+@media(max-width:415px){
+    .user{
+        width:100%;
+        flex-direction: column;
+        height:100%;
+        .bgcImg{
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            width:300px;
+            img{
+                width:150px;
+                margin-top:2rem;
+            }
+        }
+        .logo{
+            
+            h1{
+                font-size:1.3rem;
+            }
+            h2{
+                font-size:1.3rem;
+                width:300px;
+            }
+            button{
+                width:180px;
+                font-size:1rem;
+                height:35px;
+                margin-top:1rem;
+            }
+        }
+        .user-details{
+            width:300px;
             font-size:.7rem;
             flex-direction: column;
             padding:0;

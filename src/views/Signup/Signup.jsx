@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { userSignup } from '../../store/actions/userActions.js';
+import './Signup.scss';
 
 class _Signup extends Component {
     state = {
@@ -26,13 +27,12 @@ class _Signup extends Component {
     render() {
         const { name } = this.state.user;
         return (
-            <div>
-                <form onSubmit={this.onSignup}>
+                <form class="formz" onSubmit={this.onSignup}>
+                <h1>Singup</h1>
                     <label>Username: </label>
-                    <input type="text" placeholde="Enter a username" value={name} onChange={this.setUserName}></input>
+                    <input type="text" placeholder="Enter a username" value={name} onChange={this.setUserName}></input>
                     <button>Signup</button>
                 </form>
-            </div>
         )
     }
 }

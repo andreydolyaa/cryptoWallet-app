@@ -80,3 +80,14 @@
         }
     }
 }
+
+
+
+@media(max-width:415px){
+    .user-details{
+        width:300px;
+        h1,h2{
+            font-size:1rem;
+        }
+    }
+ }

@@ -16,3 +16,9 @@
         justify-content: center;
     }
 }
+
+@media(max-width:415px){
+    .user-list{
+        padding:0;
+    }
+ }

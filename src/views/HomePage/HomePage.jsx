@@ -28,7 +28,7 @@ class _HomePage extends Component {
     }
 
     getStarted = () => {
-        this.props.history.push("/contacts")
+        this.props.history.push("/signup")
     }
 
 

@@ -18,12 +18,13 @@ class _TransferFund extends Component {
     handleFundsTransfer = (ev) => {
         var amount = ev.target.value
         this.setState({ coins: +amount });
-        this.setState(prevState => ({ sentTo: { ...prevState.sentTo, name: this.props.name, amount, date: new Date() } }));
+        this.setState(prevState => ({ sentTo: { ...prevState.sentTo, name: this.props.name, amount, date: Date.now() } }));
     }
 
     sendFunds = (ev) => {
         ev.preventDefault();
         this.props.transferFunds(this.state.sentTo);
+        this.props.history.push(`/personal-area`)
     }
 
     render() {

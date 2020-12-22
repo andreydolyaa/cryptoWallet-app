@@ -49,3 +49,21 @@
         min-height:30px;
     }
 }
+
+
+@media(max-width:415px){
+    .funds{
+        width:250px;
+        margin:1rem auto;
+        .fundt{
+            margin:10px 0;
+        }
+        .amount{
+            margin:0;
+            
+        }
+        input{
+            margin:10px;
+        }
+    }
+ }

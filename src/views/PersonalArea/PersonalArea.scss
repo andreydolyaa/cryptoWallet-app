@@ -1,11 +1,13 @@
 
 
 .personal-area{
-    border:1px solid rgb(189, 189, 189);
+    border:1px solid rgb(255, 213, 158);
+    border-radius: 5px;
     display:flex;
     justify-content: space-around;
     width:900px;
     margin:2rem auto;
+    color:gray;
     i{
         font-size:4rem;
         color:orange;
@@ -21,12 +23,31 @@
 
     }
     .user-transactions{
-        border:1px solid rgb(189, 189, 189);
+        border:1px solid rgb(255, 213, 158);
+    border-radius: 5px;
         margin:2rem;
         span{
-            color:orange;
+            color:rgb(255, 111, 0);
         }
         line-height: 21px;
         padding:1rem;
     }
+}
+
+
+@media(max-width:415px){
+   .personal-area{
+       flex-direction: column;
+       width:300px; 
+       margin:1rem auto;
+       h1,h3{
+           font-size:1rem;
+       }
+       .user-transactions{
+           margin:10px;
+       }
+       .welcome{
+           padding:1rem;
+       }
+   }
 }

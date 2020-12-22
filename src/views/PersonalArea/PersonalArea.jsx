@@ -15,8 +15,6 @@ class _PersonalArea extends Component {
         console.log(this.props.user);
     }
 
-
-
     render() {
         const { user } = this.props;
         if (!user) return <div>Loading..</div>
@@ -30,8 +28,8 @@ class _PersonalArea extends Component {
                 </div>
                 <div class="history">
                     {
-                        user.moves.map(userMove => {
-                            return (<div key={userMove.name} className="user-transactions">
+                        user.moves.map((userMove,idx) => {
+                            return (<div key={idx} className="user-transactions">
                                 <p>You have transfered <span>{userMove.amount}</span> BTC to <span>{userMove.name}</span> At <span>{userMove.date}</span></p>
                             </div>)
                         })
@@ -47,7 +45,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    getUser
+    getUser 
 }
 
 export const PersonalArea = connect(mapStateToProps, mapDispatchToProps)(_PersonalArea);

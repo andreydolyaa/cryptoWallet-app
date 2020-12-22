@@ -40,7 +40,7 @@ class _ContactDetails extends Component {
                         <h1>{contact.name}</h1>
                         <h2>{contact.email}</h2>
                         <h2>{contact.phone}</h2>
-                        <TransferFund name={contact.name}/>
+                        <TransferFund name={contact.name} {...this.props}/>
 
                         <div className="user-btns">
                             <Link to={`/contact/edit/${contact._id}`}>Edit Contact <i className="fas fa-user-edit"></i></Link>
